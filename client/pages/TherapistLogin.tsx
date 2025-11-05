@@ -1,14 +1,18 @@
 import { useNavigate, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
+import { apiClient } from "@/services/api";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function TherapistLogin() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: "", password: "" });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors = { email: "", password: "" };
 
@@ -26,8 +30,27 @@ export default function TherapistLogin() {
 
     if (newErrors.email || newErrors.password) {
       setErrors(newErrors);
-    } else {
-      navigate("/therapist-dashboard");
+      return;
+    }
+
+    setIsLoading(true);
+    setErrors({ email: "", password: "" });
+
+    try {
+      const response = await apiClient.therapistLogin(email, password);
+
+      if (response.token && response.therapist) {
+        apiClient.setToken(response.token);
+        login(response.therapist, "therapist");
+        navigate("/therapist-dashboard");
+      }
+    } catch (error) {
+      setErrors({
+        email: "Invalid email or password",
+        password: "",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -64,7 +87,8 @@ export default function TherapistLogin() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-pastel-blue rounded-2xl p-4 md:p-5 text-lg focus:outline-none focus:ring-2 focus:ring-pastel-lavender placeholder-gray-500 placeholder-opacity-50"
+              disabled={isLoading}
+              className="w-full bg-pastel-blue rounded-2xl p-4 md:p-5 text-lg focus:outline-none focus:ring-2 focus:ring-pastel-lavender placeholder-gray-500 placeholder-opacity-50 disabled:opacity-50"
               placeholder="your@email.com"
             />
             {errors.email && (
@@ -81,7 +105,8 @@ export default function TherapistLogin() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-pastel-blue rounded-2xl p-4 md:p-5 text-lg focus:outline-none focus:ring-2 focus:ring-pastel-lavender placeholder-gray-500 placeholder-opacity-50"
+              disabled={isLoading}
+              className="w-full bg-pastel-blue rounded-2xl p-4 md:p-5 text-lg focus:outline-none focus:ring-2 focus:ring-pastel-lavender placeholder-gray-500 placeholder-opacity-50 disabled:opacity-50"
               placeholder="••••••••"
             />
             {errors.password && (
@@ -92,9 +117,10 @@ export default function TherapistLogin() {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-gradient-to-br from-pastel-green to-pastel-blue hover:shadow-2xl hover:scale-105 transition-all duration-300 rounded-2xl p-4 md:p-5 text-xl md:text-2xl font-bold text-white cursor-pointer active:scale-95"
+            disabled={isLoading}
+            className="w-full bg-gradient-to-br from-pastel-green to-pastel-blue hover:shadow-2xl hover:scale-105 transition-all duration-300 rounded-2xl p-4 md:p-5 text-xl md:text-2xl font-bold text-white cursor-pointer active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Login
+            {isLoading ? "Logging in..." : "Login"}
           </button>
         </form>
 
