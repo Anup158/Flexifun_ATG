@@ -7,7 +7,7 @@
 
 @layer base {
   /**
-   * Tailwind CSS theme
+   * Tailwind CSS theme with FlexiFun pastel colors
    * tailwind.config.ts expects the following color variables to be expressed as HSL values.
    * A different format will require also updating the theme in tailwind.config.ts.
   */
@@ -57,6 +57,14 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* FlexiFun Pastel Colors */
+    --pastel-blue: 200 100% 79%;
+    --pastel-yellow: 45 100% 82%;
+    --pastel-green: 145 71% 77%;
+    --pastel-lavender: 265 70% 82%;
+    --pastel-pink: 330 78% 82%;
+    --pastel-peach: 25 100% 84%;
   }
 
   .dark {
@@ -95,6 +103,14 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* FlexiFun Pastel Colors (dark mode) */
+    --pastel-blue: 200 100% 79%;
+    --pastel-yellow: 45 100% 82%;
+    --pastel-green: 145 71% 77%;
+    --pastel-lavender: 265 70% 82%;
+    --pastel-pink: 330 78% 82%;
+    --pastel-peach: 25 100% 84%;
   }
 }
 
