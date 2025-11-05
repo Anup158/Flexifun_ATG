@@ -29,7 +29,7 @@ export default function ChildLogin() {
     if (newPattern.length >= 4) {
       setCompleted(true);
       setTimeout(() => {
-        navigate("/");
+        navigate("/home");
       }, 1000);
     }
   };
