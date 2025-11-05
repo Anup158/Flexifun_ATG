@@ -82,7 +82,10 @@ export default function TherapistDashboard() {
 
           <div className="space-y-6">
             {skills.map((skill) => (
-              <div key={skill.name} className="p-6 bg-gradient-to-r from-pastel-blue to-pastel-green rounded-2xl">
+              <div
+                key={skill.name}
+                className="p-6 bg-gradient-to-r from-pastel-blue to-pastel-green rounded-2xl"
+              >
                 <div className="flex items-center justify-between mb-3">
                   <span className="flex items-center gap-3">
                     <span className="text-3xl">{skill.emoji}</span>

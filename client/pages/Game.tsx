@@ -55,7 +55,8 @@ export default function Game() {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [currentQuestion, setCurrentQuestion] = useState(1);
 
-  const gameConfig = gameConfigs[gameId] || gameConfigs["emotional-recognition"];
+  const gameConfig =
+    gameConfigs[gameId] || gameConfigs["emotional-recognition"];
 
   return (
     <div className={`min-h-screen ${gameConfig.bgColor}`}>
@@ -141,7 +142,8 @@ export default function Game() {
             </button>
             <button
               onClick={() => {
-                if (currentQuestion < 5) setCurrentQuestion(currentQuestion + 1);
+                if (currentQuestion < 5)
+                  setCurrentQuestion(currentQuestion + 1);
               }}
               className="w-full bg-gradient-to-br from-pastel-green to-green-300 hover:shadow-md transition-all duration-300 rounded-lg py-4 px-6 font-bold text-slate-900 active:scale-95 flex items-center justify-center gap-2"
             >

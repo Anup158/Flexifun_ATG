@@ -2,16 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Volume2, VolumeX } from "lucide-react";
 import { useState } from "react";
 
-const avatarOptions = [
-  "🦁",
-  "🐯",
-  "🐻",
-  "🐼",
-  "🐨",
-  "🦊",
-  "🐸",
-  "🦄",
-];
+const avatarOptions = ["🦁", "🐯", "🐻", "🐼", "🐨", "🦊", "🐸", "🦄"];
 
 export default function Profile() {
   const [soundEnabled, setSoundEnabled] = useState(true);
@@ -44,9 +35,7 @@ export default function Profile() {
             </h2>
 
             <div className="flex justify-center mb-8 p-8 bg-gradient-to-br from-pastel-blue to-pastel-lavender rounded-xl">
-              <div className="text-9xl animate-bounce">
-                {selectedAvatar}
-              </div>
+              <div className="text-9xl animate-bounce">{selectedAvatar}</div>
             </div>
 
             <div className="grid grid-cols-4 gap-3 bg-slate-50 p-6 rounded-xl">
@@ -93,7 +82,9 @@ export default function Profile() {
                 </label>
                 <div className="flex gap-2 text-3xl">
                   {[1, 2, 3].map((i) => (
-                    <span key={i} className="text-4xl">⭐</span>
+                    <span key={i} className="text-4xl">
+                      ⭐
+                    </span>
                   ))}
                   {[1, 2].map((i) => (
                     <span key={`empty-${i}`} className="text-4xl opacity-20">

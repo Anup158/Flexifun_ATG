@@ -96,7 +96,9 @@ export default function ChildHome() {
               </p>
               <div className="flex gap-2 mt-3">
                 {[1, 2, 3].map((i) => (
-                  <span key={i} className="text-xl">⭐</span>
+                  <span key={i} className="text-xl">
+                    ⭐
+                  </span>
                 ))}
                 {[1, 2].map((i) => (
                   <span key={`empty-${i}`} className="text-xl opacity-30">
@@ -183,7 +185,9 @@ export default function ChildHome() {
 
         {/* Quick Actions */}
         <div className="mt-12 bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-          <h3 className="text-xl font-bold text-slate-900 mb-6">Quick Actions</h3>
+          <h3 className="text-xl font-bold text-slate-900 mb-6">
+            Quick Actions
+          </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Link to="/profile">
               <button className="w-full bg-gradient-to-br from-pastel-blue to-blue-200 hover:shadow-md transition-all duration-300 rounded-lg py-4 px-6 font-semibold text-slate-900 active:scale-95">

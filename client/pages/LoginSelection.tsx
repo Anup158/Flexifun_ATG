@@ -75,10 +75,7 @@ export default function LoginSelection() {
         {/* Login Options */}
         <div className="flex flex-col gap-6 w-full items-center px-4 sm:px-8">
           {/* Child/Learner Button */}
-          <Link
-            to="/child-login"
-            className="w-full max-w-xs"
-          >
+          <Link to="/child-login" className="w-full max-w-xs">
             <button className="w-full bg-gradient-to-br from-pastel-yellow to-pastel-peach hover:shadow-2xl hover:scale-105 transition-all duration-300 rounded-3xl p-6 md:p-8 flex flex-col items-center justify-center gap-4 cursor-pointer group">
               <div className="text-5xl md:text-6xl group-hover:scale-110 transition-transform duration-300">
                 🧒
@@ -90,10 +87,7 @@ export default function LoginSelection() {
           </Link>
 
           {/* Therapist/Teacher Button */}
-          <Link
-            to="/therapist-login"
-            className="w-full max-w-xs"
-          >
+          <Link to="/therapist-login" className="w-full max-w-xs">
             <button className="w-full bg-gradient-to-br from-pastel-green to-pastel-lavender hover:shadow-2xl hover:scale-105 transition-all duration-300 rounded-3xl p-6 md:p-8 flex flex-col items-center justify-center gap-4 cursor-pointer group">
               <div className="text-5xl md:text-6xl group-hover:scale-110 transition-transform duration-300">
                 👩‍⚕️

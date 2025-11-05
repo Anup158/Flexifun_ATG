@@ -70,7 +70,7 @@ export const getGameModuleById = (id: string): GameModule | undefined => {
 };
 
 export const getGamesByCategory = (
-  category: GameModule["category"]
+  category: GameModule["category"],
 ): GameModule[] => {
   return gameModules.filter((m) => m.category === category);
 };

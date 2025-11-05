@@ -51,7 +51,10 @@ export default function TherapistLogin() {
         </div>
 
         {/* Login Form */}
-        <form onSubmit={handleSubmit} className="w-full bg-white rounded-3xl p-8 md:p-10 shadow-lg space-y-6">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full bg-white rounded-3xl p-8 md:p-10 shadow-lg space-y-6"
+        >
           {/* Email Field */}
           <div>
             <label className="block text-gray-700 font-bold text-lg mb-3">

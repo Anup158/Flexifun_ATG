@@ -2,16 +2,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
 
-const avatarOptions = [
-  "🦁",
-  "🐯",
-  "🐻",
-  "🐼",
-  "🐨",
-  "🦊",
-  "🐸",
-  "🦄",
-];
+const avatarOptions = ["🦁", "🐯", "🐻", "🐼", "🐨", "🦊", "🐸", "🦄"];
 
 export default function ChildLogin() {
   const navigate = useNavigate();
@@ -129,9 +120,7 @@ export default function ChildLogin() {
                           : "bg-pastel-green hover:bg-pastel-yellow"
                       } cursor-pointer active:scale-95 disabled:opacity-50`}
                     >
-                      {isSelected
-                        ? pattern.indexOf(dot) + 1
-                        : dot}
+                      {isSelected ? pattern.indexOf(dot) + 1 : dot}
                     </button>
                   );
                 })}
