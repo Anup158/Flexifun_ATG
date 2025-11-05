@@ -21,11 +21,12 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <StudentProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+    <AuthProvider>
+      <TooltipProvider>
+        <StudentProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
           <Routes>
             <Route path="/" element={<LoginSelection />} />
             <Route path="/child-login" element={<ChildLogin />} />
@@ -40,9 +41,10 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </StudentProvider>
-    </TooltipProvider>
+          </BrowserRouter>
+        </StudentProvider>
+      </TooltipProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 
