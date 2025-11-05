@@ -53,9 +53,8 @@ const sessionSchema = new mongoose.Schema<ISession>(
       default: "",
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export const Session =
-  mongoose.models.Session ||
-  mongoose.model<ISession>("Session", sessionSchema);
+  mongoose.models.Session || mongoose.model<ISession>("Session", sessionSchema);

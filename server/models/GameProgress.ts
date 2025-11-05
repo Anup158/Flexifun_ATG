@@ -52,7 +52,7 @@ const gameProgressSchema = new mongoose.Schema<IGameProgress>(
       default: Date.now,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 gameProgressSchema.index({ studentId: 1, moduleId: 1 }, { unique: true });

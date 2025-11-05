@@ -11,7 +11,8 @@ export const getStudentProfile: RequestHandler = async (req, res) => {
       return res.status(401).json({ error: "Unauthorized" });
     }
 
-    const student = await Student.findById(studentId).select("-password -pinCode");
+    const student =
+      await Student.findById(studentId).select("-password -pinCode");
 
     if (!student) {
       return res.status(404).json({ error: "Student not found" });
@@ -35,7 +36,7 @@ export const updateStudentProfile: RequestHandler = async (req, res) => {
     const student = await Student.findByIdAndUpdate(
       studentId,
       { name, avatar, soundEnabled },
-      { new: true }
+      { new: true },
     ).select("-password -pinCode");
 
     if (!student) {
@@ -118,9 +119,13 @@ export const getStudentStats: RequestHandler = async (req, res) => {
       },
       stats: {
         totalSessions: sessions.length,
-        totalHours: sessions.reduce((sum, s) => sum + (s.duration || 0), 0) / 60,
+        totalHours:
+          sessions.reduce((sum, s) => sum + (s.duration || 0), 0) / 60,
         currentStreak: student?.currentStreak || 0,
-        totalPoints: sessions.reduce((sum, s) => sum + (s.pointsEarned || 0), 0),
+        totalPoints: sessions.reduce(
+          (sum, s) => sum + (s.pointsEarned || 0),
+          0,
+        ),
       },
     });
   } catch (error) {

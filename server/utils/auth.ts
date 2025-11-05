@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken";
 import bcryptjs from "bcryptjs";
 
-const JWT_SECRET = process.env.JWT_SECRET || "flexifun-secret-key-change-in-production";
+const JWT_SECRET =
+  process.env.JWT_SECRET || "flexifun-secret-key-change-in-production";
 const JWT_EXPIRE = "7d";
 
 export interface JWTPayload {
@@ -16,7 +17,7 @@ export async function hashPassword(password: string): Promise<string> {
 
 export async function comparePasswords(
   password: string,
-  hashedPassword: string
+  hashedPassword: string,
 ): Promise<boolean> {
   return bcryptjs.compare(password, hashedPassword);
 }

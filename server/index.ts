@@ -2,7 +2,11 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { connectDatabase } from "./config/database";
-import { authMiddleware, studentAuthMiddleware, therapistAuthMiddleware } from "./middleware/auth";
+import {
+  authMiddleware,
+  studentAuthMiddleware,
+  therapistAuthMiddleware,
+} from "./middleware/auth";
 import * as authRoutes from "./routes/auth";
 import * as studentRoutes from "./routes/student";
 import * as therapistRoutes from "./routes/therapist";
@@ -41,24 +45,52 @@ export function createServer() {
   app.post("/api/auth/therapist/login", authRoutes.therapistLogin);
 
   // ============ Student Routes (Protected) ============
-  app.get("/api/student/profile", studentAuthMiddleware, studentRoutes.getStudentProfile);
-  app.put("/api/student/profile", studentAuthMiddleware, studentRoutes.updateStudentProfile);
-  app.get("/api/student/progress", studentAuthMiddleware, studentRoutes.getStudentProgress);
-  app.put("/api/student/progress", studentAuthMiddleware, studentRoutes.updateGameProgress);
-  app.get("/api/student/stats", studentAuthMiddleware, studentRoutes.getStudentStats);
+  app.get(
+    "/api/student/profile",
+    studentAuthMiddleware,
+    studentRoutes.getStudentProfile,
+  );
+  app.put(
+    "/api/student/profile",
+    studentAuthMiddleware,
+    studentRoutes.updateStudentProfile,
+  );
+  app.get(
+    "/api/student/progress",
+    studentAuthMiddleware,
+    studentRoutes.getStudentProgress,
+  );
+  app.put(
+    "/api/student/progress",
+    studentAuthMiddleware,
+    studentRoutes.updateGameProgress,
+  );
+  app.get(
+    "/api/student/stats",
+    studentAuthMiddleware,
+    studentRoutes.getStudentStats,
+  );
 
   // ============ Therapist Routes (Protected) ============
-  app.get("/api/therapist/dashboard", therapistAuthMiddleware, therapistRoutes.getTherapistDashboard);
-  app.post("/api/therapist/assign-student", therapistAuthMiddleware, therapistRoutes.assignStudent);
+  app.get(
+    "/api/therapist/dashboard",
+    therapistAuthMiddleware,
+    therapistRoutes.getTherapistDashboard,
+  );
+  app.post(
+    "/api/therapist/assign-student",
+    therapistAuthMiddleware,
+    therapistRoutes.assignStudent,
+  );
   app.get(
     "/api/therapist/student/:studentId/progress",
     therapistAuthMiddleware,
-    therapistRoutes.getStudentProgress
+    therapistRoutes.getStudentProgress,
   );
   app.get(
     "/api/therapist/student/:studentId/report",
     therapistAuthMiddleware,
-    therapistRoutes.generateWeeklyReport
+    therapistRoutes.generateWeeklyReport,
   );
 
   return app;

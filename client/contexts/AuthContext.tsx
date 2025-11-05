@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 import { apiClient } from "@/services/api";
 
 export interface AuthUser {
@@ -25,12 +31,17 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<AuthUser | null>(null);
-  const [userType, setUserType] = useState<"student" | "therapist" | null>(null);
+  const [userType, setUserType] = useState<"student" | "therapist" | null>(
+    null,
+  );
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem("auth_token");
-    const userType = localStorage.getItem("user_type") as "student" | "therapist" | null;
+    const userType = localStorage.getItem("user_type") as
+      | "student"
+      | "therapist"
+      | null;
     const userData = localStorage.getItem("user_data");
 
     if (token && userData && userType) {

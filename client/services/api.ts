@@ -35,7 +35,7 @@ class ApiClient {
 
   private async request(
     endpoint: string,
-    options: RequestInit = {}
+    options: RequestInit = {},
   ): Promise<any> {
     const url = `${API_BASE}${endpoint}`;
     const response = await fetch(url, {
@@ -85,7 +85,12 @@ class ApiClient {
     return this.post("/auth/therapist/login", { email, password });
   }
 
-  therapistSignup(name: string, email: string, password: string, organization?: string) {
+  therapistSignup(
+    name: string,
+    email: string,
+    password: string,
+    organization?: string,
+  ) {
     return this.post("/auth/therapist/signup", {
       name,
       email,

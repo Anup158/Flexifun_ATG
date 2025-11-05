@@ -4,16 +4,7 @@ import { useState } from "react";
 import { apiClient } from "@/services/api";
 import { useAuth } from "@/contexts/AuthContext";
 
-const avatarOptions = [
-  "🦁",
-  "🐯",
-  "🐻",
-  "🐼",
-  "🐨",
-  "🦊",
-  "🐸",
-  "🦄",
-];
+const avatarOptions = ["🦁", "🐯", "🐻", "🐼", "🐨", "🦊", "🐸", "🦄"];
 
 export default function ChildLogin() {
   const navigate = useNavigate();
@@ -39,13 +30,13 @@ export default function ChildLogin() {
       try {
         // Convert pattern to PIN (e.g., "1234")
         const pinCode = newPattern.join("");
-        
+
         const response = await apiClient.studentLogin(pinCode);
-        
+
         if (response.token && response.student) {
           apiClient.setToken(response.token);
           login(response.student, "student");
-          
+
           setTimeout(() => {
             navigate("/home");
           }, 500);
@@ -154,7 +145,9 @@ export default function ChildLogin() {
                   return (
                     <button
                       key={dot}
-                      onClick={() => !completed && !isLoading && handleDotClick(dot)}
+                      onClick={() =>
+                        !completed && !isLoading && handleDotClick(dot)
+                      }
                       disabled={completed || pattern.length >= 4 || isLoading}
                       className={`w-16 h-16 md:w-20 md:h-20 rounded-full text-2xl md:text-3xl font-bold transition-all duration-300 ${
                         isSelected

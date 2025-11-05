@@ -177,23 +177,25 @@ flexifun/
 ## Database Schema
 
 ### Student
+
 ```typescript
 {
-  name: string
-  avatar: string
-  pinCode: string (hashed)
-  password: string (hashed)
-  soundEnabled: boolean
-  progressStars: number (0-5)
-  totalSessions: number
-  totalHours: number
-  currentStreak: number
-  createdAt: Date
-  updatedAt: Date
+  name: string;
+  avatar: string;
+  pinCode: string(hashed);
+  password: string(hashed);
+  soundEnabled: boolean;
+  progressStars: number(0 - 5);
+  totalSessions: number;
+  totalHours: number;
+  currentStreak: number;
+  createdAt: Date;
+  updatedAt: Date;
 }
 ```
 
 ### Therapist
+
 ```typescript
 {
   name: string
@@ -207,6 +209,7 @@ flexifun/
 ```
 
 ### GameProgress
+
 ```typescript
 {
   studentId: ObjectId
@@ -222,23 +225,25 @@ flexifun/
 ```
 
 ### Session
+
 ```typescript
 {
-  studentId: ObjectId
-  therapistId: ObjectId
-  moduleId: string
-  duration: number
-  accuracy: number
-  pointsEarned: number
-  notes: string
-  createdAt: Date
-  updatedAt: Date
+  studentId: ObjectId;
+  therapistId: ObjectId;
+  moduleId: string;
+  duration: number;
+  accuracy: number;
+  pointsEarned: number;
+  notes: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 ```
 
 ## Authentication Flow
 
 ### For Students
+
 1. Child clicks "Child / Learner Login" on LoginSelection
 2. Selects avatar on ChildLogin page
 3. Enters PIN pattern (minimum 4 dots)
@@ -247,6 +252,7 @@ flexifun/
 6. User redirected to ChildHome with authenticated session
 
 ### For Therapists
+
 1. Click "Therapist / Teacher Login" on LoginSelection
 2. Enter email and password on TherapistLogin page
 3. System calls `POST /api/auth/therapist/login`
@@ -284,21 +290,25 @@ flexifun/
 ## Troubleshooting
 
 ### MongoDB Connection Error
+
 - Ensure MongoDB is running: `brew services list`
 - Check connection string in `.env`
 - Verify network access for Atlas if using cloud
 
 ### Token Not Persisting
+
 - Check browser localStorage (DevTools → Application)
 - Ensure JWT_SECRET is consistent
 - Verify token expiration (default 7 days)
 
 ### API Calls Failing
+
 - Check browser Network tab for actual error responses
 - Verify server is running on correct port
 - Check CORS configuration in `server/index.ts`
 
 ### Hot Reload Not Working
+
 - Restart dev server: `npm run dev`
 - Clear browser cache (Ctrl+Shift+Delete)
 - Check Vite server is listening
@@ -340,6 +350,7 @@ MIT License - Open source and free to use
 ## Support
 
 For issues or questions:
+
 1. Check this guide's Troubleshooting section
 2. Review MongoDB and Express documentation
 3. Check API responses in browser Network tab

@@ -55,9 +55,8 @@ const studentSchema = new mongoose.Schema<IStudent>(
       default: 0,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export const Student =
-  mongoose.models.Student ||
-  mongoose.model<IStudent>("Student", studentSchema);
+  mongoose.models.Student || mongoose.model<IStudent>("Student", studentSchema);

@@ -27,20 +27,20 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<LoginSelection />} />
-            <Route path="/child-login" element={<ChildLogin />} />
-            <Route path="/therapist-login" element={<TherapistLogin />} />
-            <Route path="/home" element={<ChildHome />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/game/:gameId" element={<Game />} />
-            <Route
-              path="/therapist-dashboard"
-              element={<TherapistDashboard />}
-            />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+            <Routes>
+              <Route path="/" element={<LoginSelection />} />
+              <Route path="/child-login" element={<ChildLogin />} />
+              <Route path="/therapist-login" element={<TherapistLogin />} />
+              <Route path="/home" element={<ChildHome />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/game/:gameId" element={<Game />} />
+              <Route
+                path="/therapist-dashboard"
+                element={<TherapistDashboard />}
+              />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </BrowserRouter>
         </StudentProvider>
       </TooltipProvider>

@@ -17,7 +17,10 @@ export const studentLogin: RequestHandler = async (req, res) => {
       return res.status(401).json({ error: "Invalid PIN code" });
     }
 
-    const token = generateToken({ id: student._id.toString(), type: "student" });
+    const token = generateToken({
+      id: student._id.toString(),
+      type: "student",
+    });
 
     res.json({
       token,
@@ -56,7 +59,10 @@ export const studentSignup: RequestHandler = async (req, res) => {
 
     await student.save();
 
-    const token = generateToken({ id: student._id.toString(), type: "student" });
+    const token = generateToken({
+      id: student._id.toString(),
+      type: "student",
+    });
 
     res.status(201).json({
       token,
@@ -78,9 +84,7 @@ export const therapistLogin: RequestHandler = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res
-        .status(400)
-        .json({ error: "Email and password required" });
+      return res.status(400).json({ error: "Email and password required" });
     }
 
     const therapist = await Therapist.findOne({ email });

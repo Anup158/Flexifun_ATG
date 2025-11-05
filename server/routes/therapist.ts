@@ -13,16 +13,15 @@ export const getTherapistDashboard: RequestHandler = async (req, res) => {
       return res.status(401).json({ error: "Unauthorized" });
     }
 
-    const therapist = await Therapist.findById(therapistId).populate(
-      "assignedStudents"
-    );
+    const therapist =
+      await Therapist.findById(therapistId).populate("assignedStudents");
 
     if (!therapist) {
       return res.status(404).json({ error: "Therapist not found" });
     }
 
     const studentIds = therapist.assignedStudents.map(
-      (s: any) => new mongoose.Types.ObjectId(s._id)
+      (s: any) => new mongoose.Types.ObjectId(s._id),
     );
 
     const studentProgress = await Promise.all(
@@ -47,7 +46,7 @@ export const getTherapistDashboard: RequestHandler = async (req, res) => {
             ? (student.progressStars / 5) * 100
             : 0,
         };
-      })
+      }),
     );
 
     const recentSessions = await Session.find({ therapistId })
@@ -89,7 +88,7 @@ export const assignStudent: RequestHandler = async (req, res) => {
     const therapist = await Therapist.findByIdAndUpdate(
       therapistId,
       { $addToSet: { assignedStudents: studentId } },
-      { new: true }
+      { new: true },
     );
 
     res.json(therapist);
@@ -108,8 +107,9 @@ export const getStudentProgress: RequestHandler = async (req, res) => {
     const skillsProgress = [
       {
         name: "Communication",
-        progress: progress.find((p) => p.moduleId === "social-communication")
-          ?.accuracy || 0,
+        progress:
+          progress.find((p) => p.moduleId === "social-communication")
+            ?.accuracy || 0,
         emoji: "💬",
       },
       {
@@ -128,8 +128,8 @@ export const getStudentProgress: RequestHandler = async (req, res) => {
       },
       {
         name: "Social Interaction",
-        progress: progress.find((p) => p.moduleId === "theory-of-mind")
-          ?.accuracy || 0,
+        progress:
+          progress.find((p) => p.moduleId === "theory-of-mind")?.accuracy || 0,
         emoji: "👥",
       },
     ];
@@ -165,7 +165,10 @@ export const generateWeeklyReport: RequestHandler = async (req, res) => {
       totalMinutes: sessions.reduce((sum, s) => sum + (s.duration || 0), 0),
       averageAccuracy:
         sessions.length > 0
-          ? (sessions.reduce((sum, s) => sum + (s.accuracy || 0), 0) / sessions.length).toFixed(2)
+          ? (
+              sessions.reduce((sum, s) => sum + (s.accuracy || 0), 0) /
+              sessions.length
+            ).toFixed(2)
           : 0,
       moduleBreakdown: progress.map((p) => ({
         module: p.moduleId,

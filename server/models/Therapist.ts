@@ -37,7 +37,7 @@ const therapistSchema = new mongoose.Schema<ITherapist>(
       },
     ],
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export const Therapist =

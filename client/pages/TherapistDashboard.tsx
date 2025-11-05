@@ -76,7 +76,9 @@ export default function TherapistDashboard() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
         <div className="text-center">
-          <p className="text-2xl font-bold text-slate-900">Loading dashboard...</p>
+          <p className="text-2xl font-bold text-slate-900">
+            Loading dashboard...
+          </p>
         </div>
       </div>
     );
@@ -90,7 +92,9 @@ export default function TherapistDashboard() {
           <h1 className="text-3xl md:text-5xl font-bold text-gray-800">
             Therapist Dashboard
           </h1>
-          <p className="text-gray-600 mt-2">Welcome back, {dashboard?.therapist.name}! 👩‍⚕️</p>
+          <p className="text-gray-600 mt-2">
+            Welcome back, {dashboard?.therapist.name}! 👩‍⚕️
+          </p>
         </div>
         <button
           onClick={handleLogout}
@@ -111,7 +115,8 @@ export default function TherapistDashboard() {
             📊 Student Progress
           </h2>
 
-          {dashboard?.studentProgress && dashboard.studentProgress.length > 0 ? (
+          {dashboard?.studentProgress &&
+          dashboard.studentProgress.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {dashboard.studentProgress.map((student) => (
                 <div
@@ -171,9 +176,10 @@ export default function TherapistDashboard() {
                     {Math.round(
                       (dashboard?.studentProgress.reduce(
                         (sum, s) => sum + parseFloat(s.avgAccuracy || "0"),
-                        0
-                      ) || 0) / (dashboard?.studentProgress.length || 1)
-                    )}%
+                        0,
+                      ) || 0) / (dashboard?.studentProgress.length || 1),
+                    )}
+                    %
                   </span>
                 </div>
                 <div className="w-full bg-white bg-opacity-50 rounded-full h-3">
@@ -183,7 +189,7 @@ export default function TherapistDashboard() {
                       width: `${
                         (dashboard?.studentProgress.reduce(
                           (sum, s) => sum + parseFloat(s.avgAccuracy || "0"),
-                          0
+                          0,
                         ) || 0) / (dashboard?.studentProgress.length || 1)
                       }%`,
                     }}
@@ -202,7 +208,8 @@ export default function TherapistDashboard() {
               📅 Recent Sessions
             </h2>
             <div className="space-y-4">
-              {dashboard?.recentSessions && dashboard.recentSessions.length > 0 ? (
+              {dashboard?.recentSessions &&
+              dashboard.recentSessions.length > 0 ? (
                 dashboard.recentSessions.map((session) => (
                   <div
                     key={session.id}
@@ -215,7 +222,8 @@ export default function TherapistDashboard() {
                       Module: {session.moduleId.replace(/-/g, " ")}
                     </p>
                     <p className="text-sm text-gray-600">
-                      Duration: {Math.round(session.duration)} min | Accuracy: {session.accuracy}%
+                      Duration: {Math.round(session.duration)} min | Accuracy:{" "}
+                      {session.accuracy}%
                     </p>
                     <p className="text-xs text-gray-500 mt-1">
                       {new Date(session.createdAt).toLocaleDateString()}
@@ -223,7 +231,9 @@ export default function TherapistDashboard() {
                   </div>
                 ))
               ) : (
-                <p className="text-center text-gray-600 py-4">No sessions yet</p>
+                <p className="text-center text-gray-600 py-4">
+                  No sessions yet
+                </p>
               )}
             </div>
           </div>
@@ -244,7 +254,9 @@ export default function TherapistDashboard() {
             <button
               onClick={() => {
                 if (dashboard?.studentProgress[0]) {
-                  apiClient.generateWeeklyReport(dashboard.studentProgress[0].id);
+                  apiClient.generateWeeklyReport(
+                    dashboard.studentProgress[0].id,
+                  );
                 }
               }}
               className="bg-gradient-to-br from-pastel-green to-pastel-blue hover:shadow-lg hover:scale-105 transition-all duration-300 rounded-2xl p-6 flex items-center gap-4 cursor-pointer active:scale-95"
