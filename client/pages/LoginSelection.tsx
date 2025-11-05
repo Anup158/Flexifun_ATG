@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Cloud, Balloon } from "lucide-react";
+import { Cloud } from "lucide-react";
 
 interface FloatingAsset {
   id: number;
@@ -53,7 +53,7 @@ export default function LoginSelection() {
           }}
         >
           <div className="flex flex-col items-center">
-            <Balloon size={40} className="text-pastel-pink drop-shadow-md" />
+            <span className="text-4xl md:text-5xl drop-shadow-md">🎈</span>
             <div
               className="w-1 h-8 md:h-12 opacity-30"
               style={{ background: "rgb(251, 191, 210)" }}
