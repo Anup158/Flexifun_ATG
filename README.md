@@ -35,16 +35,13 @@ This project leverages modern web technologies to deliver real-time interactivit
 
 ## 🖥️ Screenshots
 
-<img width="1919" height="1096" alt="Screenshot 2025-11-05 090342" src="https://github.com/user-attachments/assets/bfedae95-51dc-43b1-8756-49d3442d73f6" />
+<img width="1545" height="873" alt="Screenshot 2026-05-20 180431" src="https://github.com/user-attachments/assets/ad8842fc-6d8e-4520-8d8a-e7bb8618dba6" />
 
 
-<img width="1919" height="1090" alt="Screenshot 2025-11-05 090356" src="https://github.com/user-attachments/assets/ff4a43b9-d937-4986-b616-cf87ace66dd0" />
+<img width="1538" height="875" alt="Screenshot 2026-05-20 180354" src="https://github.com/user-attachments/assets/b3458c10-34ab-49a4-a6fc-2fbd60178347" />
 
- 
-<img width="1919" height="1088" alt="Screenshot 2025-11-05 090409" src="https://github.com/user-attachments/assets/5abc2be6-05ce-40ef-a9d8-f92a01bf4aa6" />
 
- 
-<img width="1919" height="1151" alt="Screenshot 2025-11-05 090427" src="https://github.com/user-attachments/assets/ba635def-f241-4200-be23-46bae2ef96bc" />
+<img width="1534" height="873" alt="Screenshot 2026-05-20 180415" src="https://github.com/user-attachments/assets/bdb7ed58-035b-4349-a48e-c9c06710b9b9" />
 
 
 
